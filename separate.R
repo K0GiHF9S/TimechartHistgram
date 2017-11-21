@@ -1,5 +1,5 @@
 separate <- function(x){
-  uniques <- order(unique(x$kind))
+  uniques <- sort(unique(x$kind))
   
   output <- lapply(uniques,
                    try(
@@ -11,7 +11,7 @@ separate <- function(x){
                        cycle_tmp = 0
                        for(i in 1:(length(x$time)-1)){
                          if(x$kind[i] == k){
-                           if(flag[i] == 0){
+                           if(x$flag[i] == 0){
                              if(!first){
                                cycle <- c(cycle, x$time[i] - cycle_tmp)
                              }
