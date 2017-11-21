@@ -1,9 +1,14 @@
 args <- commandArgs(trailingOnly = T)
+times <- 1
+
+source("./readBinFiles.R")
+
+data.all <- readBinFiles(args, times)
 
 source("./separate.R")
 
-data.all <- lapply(args, function(arg) {
-  return(separate(read.csv(arg,header = T)))
+data.all <- lapply(data.all, function(data) {
+  return(separate(data))
 })
 
 len <- 100
@@ -29,9 +34,6 @@ abline(v = mean(x1$RUN), col = "green", lwd = 4)
 legend("topright", legend=c("A", "B", "C", "A", "B", "C"), col=rep(c("#FF000050", "blue", "green"), 2), pch = c(15, 15, 15, -1, -1, -1), lty = c(0, 0, 0, 1, 1, 1))
 
 dev.off()
-
-#x2 <- makeSampleData(meanRun = 50, meanCycle = 3000, 1)
-#x3 <- makeSampleData(meanRun = 30, meanCycle = 2000, 1)
 
 
 
