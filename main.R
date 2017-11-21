@@ -1,4 +1,11 @@
 args <- commandArgs(trailingOnly = T)
+
+source("./separate.R")
+
+data.all <- lapply(args, function(arg) {
+  return(separate(read.csv(arg,header = T)))
+})
+
 len <- 100
 
 makeSampleData <- function(meanRun, meanCycle, sd){
