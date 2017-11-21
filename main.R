@@ -1,3 +1,4 @@
+args <- commandArgs(trailingOnly = T)
 len <- 100
 
 makeSampleData <- function(meanRun, meanCycle, sd){
