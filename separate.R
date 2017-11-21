@@ -28,10 +28,10 @@ separate <- function(x){
                            }
                          }
                        }
-                       return(list(kind=k, act=act, cycle=cycle))
+                       return(list(act=act, cycle=cycle))
                      }
                    )
   )
-  
+  names(output) <- uniques
   return(output)
 }
